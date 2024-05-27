@@ -1,0 +1,19 @@
+{% extends 'meal_organize/base.html' %}
+
+{% block content %}
+
+<p> pizza : {{ pizza.text }}</p>
+
+
+<p> topping : </p>
+<ul>
+    {% for top in toppings %}
+        <li>
+            <p> {{ top.date_added|date:'M d,Y H:i'}}</p>
+            <p> {{ top.text|linebreaks}}</p>
+        </li>    
+    {% empty %}
+    <li>There are no topping for this pizza yet.</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
