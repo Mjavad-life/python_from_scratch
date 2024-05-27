@@ -1,0 +1,21 @@
+{% extends 'blogs/base.html' %}
+
+{% block content %}
+
+<p>Mabhas: {{mabhas.text}} </p>
+
+<p>Mohtava:</p>
+<p>
+    <a href="{% url 'blogs:new_mohtava' mabhas.id %}"> Add new mohtava</a>
+</p>
+<ul>
+    {% for mohtava in mohtavaha %}
+        <li>
+            <p>{{ mohtava.date_added|date:'M d,Y H:i'}}</p>
+            <p>{{mohtava.text|linebreaks}}</p>
+        </li>
+    {% empty%}
+     <li> there are no mohtava for this mabhas yet</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

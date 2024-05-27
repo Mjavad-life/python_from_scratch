@@ -1,0 +1,17 @@
+{% extends 'blogs/base.html' %}
+
+{% block content %}
+
+    <p> Mabahes</p>
+    <ul>
+        {% for mabhas in mabahes %}
+            <li> 
+                <a href="{% url 'blogs:mabhas' mabhas.id%}">
+                {{mabhas.text}}</a>
+            </li>
+        {% empty %}
+            <li> no mabhas has been added yet</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'blogs:new_mabhas' %}">Add a new mabhas</a>
+{% endblock content %}

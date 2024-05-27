@@ -1,0 +1,9 @@
+{% extends "blogs/base.html" %}
+{% block content %}
+    <p>Add a new mabhas:</p>
+<form action="{% url 'blogs:new_mabhas' %}" method='post'>
+ {% csrf_token %}
+ {{ form.as_div }}
+ <button name="submit">Add mabhas </button>
+</form>
+{% endblock content %}
